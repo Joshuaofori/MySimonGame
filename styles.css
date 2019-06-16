@@ -33,7 +33,7 @@ body {
 
 .red {
   background-color: red;
-  background-image: url("pictures/profile.jpg");
+  /*background-image: url("pictures/profile.jpg");*/
 }
 
 .green {
