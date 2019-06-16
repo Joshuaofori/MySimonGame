@@ -9,7 +9,7 @@ var level=0;
 var started=false;
 
 //button clicked
-$(".btin").click(function() {
+$(".btn").click(function() {
 
   var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
@@ -25,6 +25,17 @@ $(".btin").click(function() {
 $(document).keydown(function () {
 	if(!started){
 	nextSequence();
+$("#level-title").text("Level "+level);
+started=true;
+}
+});
+
+
+
+/**addittion to use the text as keyboard on phone*/
+$("#level-title").click(function () {
+  if(!started){
+  nextSequence();
 $("#level-title").text("Level "+level);
 started=true;
 }
@@ -87,7 +98,7 @@ function checkAnswer(currentLevel){
      setTimeout(function(){
      	$("body").removeClass("game-over");
  },200);
-     $("#level-title").text("Game Over, Press Any Key to Restart");
+     $("#level-title").text("Game Over, Press Any Key  or this text to Restart");
      startOver();
     
 	}
