@@ -1,6 +1,6 @@
 
 var buttonColours = ["red", "blue", "green", "yellow"];
-
+var highScore=0;
 var gamePattern = [];//buttons the game expects the user to click
 var userClickedPattern = [];//the user clicked buttons
 
@@ -81,7 +81,7 @@ function checkAnswer(currentLevel){
 		
 		//console.log("Success");
 		//console.log(userClickedPattern[currentLevel]);
-		console.log(gamePattern);
+		//console.log(gamePattern);
       if(userClickedPattern.length==gamePattern.length){
       	setTimeout(function(){
       		nextSequence();
@@ -95,9 +95,16 @@ function checkAnswer(currentLevel){
 		//console.log(gamePattern[currentLevel]);
      playSound("wrong");
      $("body").addClass("game-over");
+     //if(level>highScore){
+//$("#level-title").text("HIGHSCORE: "+highScore);
+//highScore=level;
+//}
+
+
      setTimeout(function(){
      	$("body").removeClass("game-over");
  },200);
+
      $("#level-title").text("Game Over, Press Any Key  or this text to Restart");
      startOver();
     
@@ -105,6 +112,11 @@ function checkAnswer(currentLevel){
 
 }
  function startOver() {
+  //console.log(level);
+if(level>highScore){ 
+  $("#level-title").text("NEW HIGHSCORE: "+level);
+  highScore=level
+}
  	level=0;
  	gamePattern=[];
  	started=false;
